@@ -1,0 +1,26 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-6 m-auto">
+      <div class="container mt-5 pl-5"></div>
+      <h2 class="text-center">Lock</h2>
+      <form (ngSubmit)="userLogin(f)" #f='ngForm' autocomplete="off">
+        <div class="form-group"></div>
+        <label for="password">Password</label>
+        <input type="number" id="password" name="password" placeholder="password" [(ngModel)]='currentvalue' class="form-control"
+          ngModel><br>
+        <p class="error" [style.color]="colorFunction()">{{loginMesssage}}</p>
+        <button type="submit" class="float-right" [ngStyle]="submitButton">SUBMIT</button>
+      </form><br><br>
+    </div>
+  </div>
+  <div class="container keyboard">
+    <div class="row">
+      <div class="col-md-4 m-auto">
+        <button *ngFor="let number of numberArray" (click)="numberClick(number)" class="btn">{{number}}</button>
+        <button (click)="numberClick(0)" class="btn">0</button>
+        <button (click)="delete()" class="btn">X</button>
+        <button (click)="clear()" class="btn">C</button>
+      </div>
+    </div>
+  </div>
+</div>
