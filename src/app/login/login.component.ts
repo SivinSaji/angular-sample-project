@@ -11,7 +11,7 @@ import { LoginService } from '../login.service';
 
 export class LoginComponent {
   constructor(private router: Router, private loginService: LoginService) { }
-/*
+
   ngOnInit(): void {
     if (this.loginService.checkLoggedIn()) {
       this.router.navigate(['/home']);
@@ -19,7 +19,7 @@ export class LoginComponent {
       this.router.navigate(['/login']);
     }
   }
-*/
+
   localData: any
   loginMesssage: any;
   loginSuccess = false;
