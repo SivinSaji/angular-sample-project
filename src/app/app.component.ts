@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
 import { filter } from 'rxjs';
+import { faSignOut } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-root',
@@ -9,7 +10,7 @@ import { filter } from 'rxjs';
 })
 export class AppComponent implements OnInit {
   isLoggedIn: boolean = false;
-
+  faSignOut = faSignOut;
   constructor(private router: Router) {
   }
 
