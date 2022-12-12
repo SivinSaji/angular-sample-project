@@ -10,10 +10,10 @@ const routes: Routes = [
     redirectTo: 'home',
     pathMatch: 'full'
   },
-  { path: 'login', component: LoginComponent},
+  { path: 'login', component: LoginComponent },
   {
     path: 'home', component: HomeComponent,
-    canActivate:[AuthGuard]
+    canActivate: [AuthGuard]
   }
 ];
 

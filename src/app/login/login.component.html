@@ -4,35 +4,25 @@
       <div class="container mt-5 pl-5"></div>
       <h2 class="text-center">Lock</h2>
 
-      <form #loginForm="ngForm" (ngSubmit)="userLogin(loginForm)" >
+      <form #loginForm="ngForm" (ngSubmit)="userLogin(loginForm)">
         <div>
-            <mat-form-field class="w-100">
-              <input matInput type="number" id="password" name="password" placeholder="password" [(ngModel)]='currentvalue'>
-            </mat-form-field>
-            <p class="error" style="color: red;">{{loginMesssage}}</p>
+          <mat-form-field class="w-100">
+            <input matInput type="number" id="password" name="password" placeholder="password"
+              [(ngModel)]='currentvalue'>
+          </mat-form-field>
+          <p class="error" style="color: red;">{{loginMesssage}}</p>
         </div>
-    <button mat-raised-button color="primary" type="submit" class="float-right">Login</button>
-    </form>
-
-<!--
-      <form (ngSubmit)="userLogin(f)" #f='ngForm' autocomplete="off">
-        <div class="form-group">
-        <label for="password">Password</label>
-        <input type="number" id="password" name="password" placeholder="password" [(ngModel)]='currentvalue' class="form-control"
-          ngModel><br>
-        </div>
-        <p class="error" style="color: red;">{{loginMesssage}}</p>
-        <button type="submit" mat-raised-button color="primary" class="float-right">SUBMIT</button>
-      </form><br><br>
--->
+        <button mat-raised-button color="primary" type="submit" class="float-right">Login</button>
+      </form>
     </div>
   </div>
   <div class="container keyboard">
     <div class="row">
       <div class="col-md-4 m-auto">
-        <button mat-raised-button *ngFor="let number of numberArray" (click)="numberClick(number)" class="numbers">{{number}}</button>
+        <button mat-raised-button *ngFor="let number of numberArray" (click)="numberClick(number)"
+          class="numbers">{{number}}</button>
         <button mat-raised-button (click)="numberClick(0)" class="numbers">0</button>
-        <button mat-raised-button (click)="delete()" class="numbers">X</button>
+        <button mat-raised-button (click)="delete()" class="numbers"><fa-icon class="ml-1" [icon]="faArrowLeft"></fa-icon></button>
         <button mat-raised-button (click)="clear()" class="numbers">C</button>
       </div>
     </div>

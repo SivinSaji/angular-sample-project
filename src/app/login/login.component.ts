@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { LoginService } from '../login.service';
+import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-login',
@@ -10,16 +11,14 @@ import { LoginService } from '../login.service';
 })
 
 export class LoginComponent {
-  constructor(private router: Router, private loginService: LoginService) { }
-
-  localData: any
+  constructor(private router: Router, private loginService: LoginService) { };
+  faArrowLeft = faArrowLeft;
   loginMesssage: any;
   loginSuccess = false;
   currentvalue = '';
-  temp = 'surya'
   numberArray = [7, 8, 9, 4, 5, 6, 1, 2, 3];
-  username='';
-  password='';
+  username = '';
+  password = '';
 
   ngOnInit(): void {
     if (this.loginService.checkLoggedIn()) {
@@ -66,7 +65,7 @@ export class LoginComponent {
     this.currentvalue = '';
   }
 
-  authenticateUser(value:any){
+  authenticateUser(value: any) {
     console.log(value);
 
   }

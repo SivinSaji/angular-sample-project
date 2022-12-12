@@ -1,35 +1,47 @@
-<div class="container">
-    <mat-card-title class="title">Welcome User</mat-card-title>
-    <div class="row mt-4">
-        <div class="col-md-4 m-auto">
-            <mat-card class="example-card">
-                <mat-card-header>
-                    <mat-card-title>Hello welcome</mat-card-title>
-                </mat-card-header>
-                <mat-card-content>
-                    <p>{{ longText }}</p>
-                </mat-card-content>
-            </mat-card>
-        </div>
-        <div class="col-md-4 m-auto">
-            <mat-card class="example-card">
-                <mat-card-header>
-                    <mat-card-title>Hello welcome</mat-card-title>
-                </mat-card-header>
-                <mat-card-content>
-                    <p>{{ longText }}</p>
-                </mat-card-content>
-            </mat-card>
-        </div>
-        <div class="col-md-4 m-auto">
-            <mat-card class="example-card">
-                <mat-card-header>
-                    <mat-card-title>Hello welcome</mat-card-title>
-                </mat-card-header>
-                <mat-card-content>
-                    <p>{{ longText }}</p>
-                </mat-card-content>
-            </mat-card>
-        </div>
-    </div>
+<div class="pt-2" style="background-color: blueviolet;">
+  <div class="heading-background">
+    <h1 class="product-icon"><fa-icon class="ml-1" [icon]="faCompactDisc"></fa-icon></h1>
+    <h1 class="title">OMNEX</h1>
+    <p class="title-text">PERFECT LIGHTING FOR ALL SEASONS</p>
+  </div>
+  <div class="mt-4 text-center minor-title-background">
+    <h2 class="number-title">6</h2>
+    <h2 class="minor-title text-left">Colour RGB<br>Rotating Bulb</h2>
+  </div>
 </div>
+<div class="main-body">
+  <div class="card-block">
+    <div class="left-card card">
+      <div class="card-body">
+        <p class="card-text">Inbuilt <br> Power <br> LEDs</p>
+      </div>
+    </div>
+    <div class="left-card card mt-2">
+      <div class="card-body">
+        <p class="card-text">Can <br> work on <br> Inverters</p>
+      </div>
+    </div>
+    <div class="left-card card mt-2">
+      <div class="card-body">
+        <p class="card-text">Easy <span style="font-size: 12px;">Installation</span></p>
+      </div>
+    </div>
+    <div class="left-card card mt-2 mb-4">
+      <div class="card-body">
+        <p class="card-text">3000 hours<br>life</p>
+      </div>
+    </div>
+  </div>
+  <img class="bulbImage" [src]="bulbImage" alt="Bulb">
+  <div class="rate-card card">
+    <div class="card-body p-0 m-0">
+      <p class="card-text"><span class="font-weight-bold m-0" style="font-size:x-small;">Model No. :OM-03R<br>Item  :LED BULB 3w Rotating <br>M.R.P :Rs. 150/- Pc <br>Qty :1PC <br>Manufactured by: OMNEX LITE</span><br><span style="font-size: x-small;">BUSINESS ESQUIRE CHANGOHAR</span><br></p>
+    </div>
+  </div>
+</div>
+<footer class="mt-2 footer-style">
+  <br>
+  <br>
+  <br>
+  <br>
+</footer>
