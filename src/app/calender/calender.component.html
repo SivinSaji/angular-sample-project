@@ -1,12 +1,27 @@
-<div class="container">
+<div mat-raised-button class="refresh" (click)="randomizeEvents()">random</div>
+<div class="container p-2">
     <div class="month">
-
-
-        <strong>{{month}}</strong>
-        <button class="rigth-button" style="margin-left: 20%;" mat-button (click)="rightSwitch()"><i style="color: grey;" class="fa fa-angle-right"></i></button>
-        <br><br>
-        <strong class="date">{{date |date: 'MMM dd, y'}}</strong>
-        <button mat-raised-button (click)="todayDate()">Today</button>
+        <div class="row">
+            <div class="col-md-4">
+                <button class="next-month-button" mat-button (click)="leftSwitch()"><i id="header-button"
+                        class="fa fa-angle-left"></i></button>
+            </div>
+            <div class="col-md-4">
+                <strong>{{month}}</strong><br><br>
+                <strong class="date">{{date |date: 'y'}}</strong>
+            </div>
+            <div class="col-md-4">
+                <div class="row">
+                    <div class="col-md-6">
+                        <button class="next-month-button" mat-button (click)="rightSwitch()"><i id="header-button"
+                                class="fa fa-angle-right"></i></button>
+                    </div>
+                    <div class="col-md-6 pl-3">
+                        <button id="header-button" mat-button (click)="todayDate()">Today</button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
     <div class="calendar-tile">
         <div class="headers">
@@ -15,13 +30,14 @@
         <div class="dates-wrap">
             <div class="day-cell" *ngFor="let day of allDates" [ngClass]="day.class">{{day.dateNumber}}
                 <span class="month-name">{{day.date |date:'MMM'}}</span>
+                <span class="event-mark" *ngIf="day.events"><i class="fa fa-circle"></i></span>
             </div>
         </div>
     </div>
-
-    <ul class="list-group mt-2">
-        <li class="holiday-list list-group-item active">Holiday List</li>
-        <li class="list-group-item">Christmas on 25th December</li>
-        <li class="list-group-item" *ngFor="let date of allDates">{{date}}</li>
+</div>
+<div class="container" style=" border: 1px solid #fff;">
+    <ul class="list-group">
+        <li class="list-group-item" *ngFor="let event of events">{{event.date |date: 'MMM dd y'}}: {{event.title}}
+        </li>
     </ul>
 </div>

@@ -3,6 +3,7 @@
     margin: auto;
     margin-top: 10px;
     font-family: sans-serif;
+    border: 1px solid grey;
 }
 
 .month {
@@ -11,10 +12,9 @@
     font-size: 2.5em;
     color: #747474;
     padding: 25px;
-    justify-content: space-between;
 }
 
-.rigth-button{
+.next-month-button {
     font-size: 3rem;
     font-weight: 400;
 }
@@ -31,13 +31,16 @@
         width: 100%;
         border: 1px solid white;
         opacity: 0.5;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        position: relative;
 
         &.cur-month {
             opacity: 1;
         }
 
         &.current-date {
-            background: green !important;
+            background: grey !important;
         }
 
         .month-name {
@@ -49,7 +52,24 @@
             .month-name {
                 display: unset;
             }
+
+            .event-mark {
+                font-size: 3.2em;
+                margin-left: 33%;
+                top: -1px;
+            }
         }
+    }
+
+    .event-mark {
+        position: absolute;
+        font-size: 2em;
+        margin-left: 39%;
+        left: 0;
+        opacity: 0.5;
+        top: 5px;
+        z-index: 3;
+        color: green;
     }
 
     .headers {
@@ -64,83 +84,16 @@
             flex: 1 0 14%;
             padding: 10px 0;
             background: silver;
+
+            .event-mark {
+                position: absolute;
+
+            }
         }
     }
 }
 
-table,
-th,
-td {
-    width: 100%;
-    table-layout: fixed;
-    text-align: center;
-    font-size: 17px;
-    border-collapse: collapse;
-    border: 1px solid #fff;
-}
 
-tr,
-th {
-    padding: 15px;
-}
-
-td {
-    padding-left: 25px;
-    padding-right: 25px;
-    padding-top: 35px;
-    padding-bottom: 35px;
-}
-
-th {
-    color: #fff;
-    background: #747474;
-}
-
-td {
-    background: #bbc4c2;
-}
-
-td:hover {
-    background: #747474;
-}
-
-.sunday {
-    color: red;
-    font-weight: bold;
-}
-
-.sunday-week {
-    color: red;
-}
-
-.holiday {
-    color: #000;
-    font-size: x-small;
-}
-
-#holiday {
-    padding-top: 25px;
-    padding-bottom: 25px;
-}
-
-.holiday-list {
-    border: #000;
-    background: #747474;
-}
-
-
-@media screen and (max-width: 650px) {
-
-    /*Hide in medium Devices*/
-    .holiday {
-        display: none;
-    }
-}
-
-@media screen and (min-width: 650px) {
-
-    /*Hide in small Devices*/
-    .list-group {
-        display: none;
-    }
+#header-button {
+    color: grey;
 }
