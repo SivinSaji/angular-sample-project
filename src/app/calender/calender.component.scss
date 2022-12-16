@@ -93,6 +93,15 @@
     }
 }
 
+.event-type {
+    position: absolute;
+    background: silver;
+    top: 0;
+    left: 0;
+    height: 100%;
+    z-index: 10;
+    width: 100%;
+}
 
 #header-button {
     color: grey;

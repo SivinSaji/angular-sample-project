@@ -1,5 +1,5 @@
 <div mat-raised-button class="refresh" (click)="randomizeEvents()">random</div>
-<div class="container p-2">
+<div class="container p-2" style="position: relative;">
     <div class="month">
         <div class="row">
             <div class="col-md-4">
@@ -30,14 +30,17 @@
         <div class="dates-wrap">
             <div class="day-cell" *ngFor="let day of allDates" [ngClass]="day.class">{{day.dateNumber}}
                 <span class="month-name">{{day.date |date:'MMM'}}</span>
-                <span class="event-mark" *ngIf="day.events"><i class="fa fa-circle"></i></span>
+                <button class="event-mark" *ngIf="day.events" mat-button (click)="eventDetails(day)"><i
+                        class="fa fa-circle"></i></button>
             </div>
         </div>
     </div>
-</div>
-<div class="container" style=" border: 1px solid #fff;">
-    <ul class="list-group">
-        <li class="list-group-item" *ngFor="let event of events">{{event.date |date: 'MMM dd y'}}: {{event.title}}
-        </li>
-    </ul>
+    <div *ngIf="eventLayer" class="event-type p-2" style="position: absolute;">
+        <button class="float-left" mat-button (click)="closeEventDetails()">X</button>
+        <h2>Events on {{eventLayer.dateString}}</h2>
+        <h2>Events on {{eventLayer | json}}</h2>
+        <ul class="list-group">
+            <li *ngFor="let event of eventLayer.events" class="list-group-item">{{event}}</li>
+          </ul>
+    </div>
 </div>
