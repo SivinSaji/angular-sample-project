@@ -103,6 +103,27 @@
     width: 100%;
 }
 
+.right-table {
+    margin-left: -32px;
+}
+
+.event-icon {
+    margin-top: -3px;
+    margin-left: -36px;
+}
+
+.cur-month:hover {
+    background: red;
+}
+
+#date-number:hover {
+    background: gainsboro;
+}
+
 #header-button {
     color: grey;
+}
+
+#list-background {
+    background: silver;
 }

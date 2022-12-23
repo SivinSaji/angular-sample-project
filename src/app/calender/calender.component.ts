@@ -12,7 +12,7 @@ export class CalenderComponent {
   weekDays: string[] = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
   monthArray: string[] = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
   allDates: any = [];
-  events: any = [{ date: 1670636748000, title: 'event 1' }, { date: 1670635748000, title: 'event 2' }, { date: 1670436748000, title: 'event 3' }, { date: 1620636748000, title: 'test4' }];
+  events: any = [{ date: 1670636748000, title: 'Task 1' }, { date: 1670635748000, title: 'Task 2' }, { date: 1670436748000, title: 'Task 3' }, { date: 1620636748000, title: 'Task 4' }];
   eventLayer: any;
 
   ngOnInit(): void {
@@ -32,6 +32,7 @@ export class CalenderComponent {
     const todayString: string = this.today.toDateString();
 
     let isFirstClass = ' first-of-month';
+
     for (let x = firstDayIndex; x > 0; x--) {
       const dateVal = prevMonthLastDay.getDate() - x + 1;
       const calculatedDate: Date = new Date(this.date.getFullYear(), this.date.getMonth() - 1, dateVal);
@@ -53,6 +54,7 @@ export class CalenderComponent {
     }
 
     isFirstClass = ' first-of-month';
+
     for (let j = 1; j < (7 - lastDayIndex); j++) {
       const calculatedDate: Date = new Date(this.date.getFullYear(), this.date.getMonth() + 1, j);
       const calculatedDateString: string = calculatedDate.toDateString();
@@ -70,21 +72,24 @@ export class CalenderComponent {
     for (const event of this.events) {
       const dateTime: Date = new Date(event.date);
       const eventDateString: string = dateTime.toDateString();
+      const eventDateString2: string = dateTime.toLocaleDateString();
       const eventTime: string = dateTime.toLocaleTimeString();
 
       if (!eventDictionary[eventDateString]) {
         eventDictionary[eventDateString] = [];
       }
 
-      eventDictionary[eventDateString].push(event.title + " : " + eventTime);
-      console.log(eventDictionary);
+      if (!eventDictionary[eventDateString2]) {
+        eventDictionary[eventDateString2] = [];
+      }
+
+      eventDictionary[eventDateString].push(event.title);
+      eventDictionary[eventDateString2].push(eventTime);
     }
 
     for (const dateObject of this.allDates) {
-      console.log(dateObject);
-
       dateObject.events = eventDictionary[dateObject.dateString];
-      dateObject.time = eventDictionary[dateObject.dateString];
+      dateObject.eventTime = eventDictionary[dateObject.date.toLocaleDateString()];
     }
   }
 
@@ -123,4 +128,5 @@ export class CalenderComponent {
   closeEventDetails(): void {
     this.eventLayer = undefined;
   }
+
 }
