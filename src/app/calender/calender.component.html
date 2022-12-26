@@ -28,7 +28,7 @@
             <div class="day-cell" *ngFor="let day of weekDays">{{day}}</div>
         </div>
         <div class="dates-wrap">
-            <div class="day-cell" id="date-number" *ngFor="let day of allDates" [ngClass]="day.class">{{day.dateNumber}}
+            <div class="day-cell" id="date-number" *ngFor="let day of allDates" [ngClass]="day.class"><span>{{day.dateNumber}}</span>&nbsp;<span *ngIf="day.events">{{day.eventCount}}</span>
                 <span class="month-name">{{day.date | date:'MMM'}}</span>
                 <button class="event-mark" *ngIf="day.events" mat-button (click)="eventDetails(day)"><i
                         class="event-icon fa fa-circle"></i></button>
@@ -39,20 +39,15 @@
         <button class="float-right" mat-button (click)="closeEventDetails()"><i class="fa fa-times-circle"></i></button>
         <h2>Events on {{eventLayer.dateString}}</h2>
         <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-12">
                 <ul class="list-group">
                     <li id="list-background" class="list-group-item"><strong>Events</strong></li>
-                    <li id="list-background" class="list-group-item" *ngFor="let event of eventLayer.events">{{event}}
+
+                      <li id="list-background" class="list-group-item" *ngFor="let event of eventLayer.schedules"><span>{{event.title}}</span><span class="ml-5">{{event.time}}</span>
                     </li>
                 </ul>
             </div>
-            <div class="col-md-6">
-                <ul class="list-group">
-                    <li id="list-background" class="right-table list-group-item"><strong>Time</strong></li>
-                    <li id="list-background" *ngFor="let time of eventLayer.eventTime"
-                        class="right-table list-group-item">{{time}}</li>
-                </ul>
-            </div>
+
         </div>
     </div>
 </div>

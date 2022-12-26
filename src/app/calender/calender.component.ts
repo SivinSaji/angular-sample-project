@@ -88,9 +88,21 @@ export class CalenderComponent {
     }
 
     for (const dateObject of this.allDates) {
+      dateObject.schedules = [];
+      let eventTitle = eventDictionary[dateObject.dateString];
+      let eventTime = eventDictionary[dateObject.date.toLocaleDateString()];
+
+      if (eventTitle) {
+        dateObject.eventCount = eventTitle.length;
+        let eventLength: number = eventTitle.length;
+        for (let i = 0; i < eventLength; i++) {
+          let newSchedule = { 'title': eventTitle[i], 'time': eventTime[i] };
+          dateObject.schedules.push(newSchedule);
+        }
+      }
       dateObject.events = eventDictionary[dateObject.dateString];
-      dateObject.eventTime = eventDictionary[dateObject.date.toLocaleDateString()];
     }
+
   }
 
   randomizeEvents(): void {
