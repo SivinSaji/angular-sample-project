@@ -27,14 +27,14 @@ export class CalenderComponent {
     const lastDay: any = new Date(this.date.getFullYear(), this.date.getMonth() + 1, 0);
     const firstDay: any = new Date(this.date.getFullYear(), this.date.getMonth(), 1);
     const prevMonthLastDay: any = new Date(this.date.getFullYear(), this.date.getMonth(), 0);
-    const firstDayIndex = firstDay.getDay();
-    const lastDayIndex = lastDay.getDay();
+    const firstDayIndex: number = firstDay.getDay();
+    const lastDayIndex: number = lastDay.getDay();
     const todayString: string = this.today.toDateString();
 
-    let isFirstClass = ' first-of-month';
+    let isFirstClass: string = ' first-of-month';
 
-    for (let x = firstDayIndex; x > 0; x--) {
-      const dateVal = prevMonthLastDay.getDate() - x + 1;
+    for (let x: number = firstDayIndex; x > 0; x--) {
+      const dateVal: number = prevMonthLastDay.getDate() - x + 1;
       const calculatedDate: Date = new Date(this.date.getFullYear(), this.date.getMonth() - 1, dateVal);
       const calculatedDateString: string = calculatedDate.toDateString();
       const dateClass: string = (calculatedDateString === todayString) ? ' current-date' : '';
@@ -82,27 +82,26 @@ export class CalenderComponent {
       if (!eventDictionary[eventDateString2]) {
         eventDictionary[eventDateString2] = [];
       }
-
       eventDictionary[eventDateString].push(event.title);
       eventDictionary[eventDateString2].push(eventTime);
     }
 
     for (const dateObject of this.allDates) {
       dateObject.schedules = [];
-      let eventTitle = eventDictionary[dateObject.dateString];
-      let eventTime = eventDictionary[dateObject.date.toLocaleDateString()];
+      let eventTitle: string = eventDictionary[dateObject.dateString];
+      let eventTime: string = eventDictionary[dateObject.date.toLocaleDateString()];
 
       if (eventTitle) {
         dateObject.eventCount = eventTitle.length;
         let eventLength: number = eventTitle.length;
-        for (let i = 0; i < eventLength; i++) {
-          let newSchedule = { 'title': eventTitle[i], 'time': eventTime[i] };
+
+        for (let i: number = 0; i < eventLength; i++) {
+          let newSchedule: any = { 'title': eventTitle[i], 'time': eventTime[i] };
           dateObject.schedules.push(newSchedule);
         }
       }
       dateObject.events = eventDictionary[dateObject.dateString];
     }
-
   }
 
   randomizeEvents(): void {
@@ -110,7 +109,7 @@ export class CalenderComponent {
     const count: number = Math.round(Math.random() * 10);
     const dateOffset: number = Math.round(Math.random() * 15);
 
-    for (let i = 0; i < count; i++) {
+    for (let i: number = 0; i < count; i++) {
       tempEvents.push({ date: new Date(this.date.getFullYear(), this.date.getMonth(), dateOffset * (i + 1)), title: 'Event ' + i });
     }
 

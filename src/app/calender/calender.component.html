@@ -1,53 +1,57 @@
 <div mat-raised-button class="refresh" (click)="randomizeEvents()">random</div>
 <div class="container p-2" style="position: relative;">
-    <div class="month">
+  <div class="month">
+    <div class="row" style="text-align: center;">
+      <div class="col-4 col-md-4">
+        <button class="next-month-button" mat-button (click)="leftSwitch()"><i id="header-button"
+            class="fa fa-angle-left"></i></button>
+      </div>
+      <div class="col-4 col-md-4">
+        <strong class="month-small-display">{{month}}</strong>
+        <strong class="month-large-device">{{month}}</strong><br class="month-large-device"><br>
+        <strong class="date">{{date | date: 'y'}}</strong> <br>
+        <button id="header-button" class="todayButton-small-device" mat-button (click)="todayDate()">Today</button>
+      </div>
+      <div class="col-4 col-md-4">
         <div class="row">
-            <div class="col-md-4">
-                <button class="next-month-button" mat-button (click)="leftSwitch()"><i id="header-button"
-                        class="fa fa-angle-left"></i></button>
-            </div>
-            <div class="col-md-4">
-                <strong>{{month}}</strong><br><br>
-                <strong class="date">{{date | date: 'y'}}</strong>
-            </div>
-            <div class="col-md-4">
-                <div class="row">
-                    <div class="col-md-6">
-                        <button class="next-month-button" mat-button (click)="rightSwitch()"><i id="header-button"
-                                class="fa fa-angle-right"></i></button>
-                    </div>
-                    <div class="col-md-6 pl-3">
-                        <button id="header-button" mat-button (click)="todayDate()">Today</button>
-                    </div>
-                </div>
-            </div>
+          <div class="col-md-6">
+            <button class="next-month-button" mat-button (click)="rightSwitch()"><i id="header-button"
+                class="fa fa-angle-right"></i></button>
+          </div>
+          <div class="todayButton-large-device col-md-6">
+            <button id="header-button" mat-button (click)="todayDate()">Today</button>
+          </div>
         </div>
+      </div>
     </div>
-    <div class="calendar-tile">
-        <div class="headers">
-            <div class="day-cell" *ngFor="let day of weekDays">{{day}}</div>
-        </div>
-        <div class="dates-wrap">
-            <div class="day-cell" id="date-number" *ngFor="let day of allDates" [ngClass]="day.class"><span>{{day.dateNumber}}</span>&nbsp;<span *ngIf="day.events">{{day.eventCount}}</span>
-                <span class="month-name">{{day.date | date:'MMM'}}</span>
-                <button class="event-mark" *ngIf="day.events" mat-button (click)="eventDetails(day)"><i
-                        class="event-icon fa fa-circle"></i></button>
-            </div>
-        </div>
-    </div>
-    <div *ngIf="eventLayer" class="event-type p-4" style="position: absolute;">
-        <button class="float-right" mat-button (click)="closeEventDetails()"><i class="fa fa-times-circle"></i></button>
-        <h2>Events on {{eventLayer.dateString}}</h2>
-        <div class="row">
-            <div class="col-md-12">
-                <ul class="list-group">
-                    <li id="list-background" class="list-group-item"><strong>Events</strong></li>
+  </div>
 
-                      <li id="list-background" class="list-group-item" *ngFor="let event of eventLayer.schedules"><span>{{event.title}}</span><span class="ml-5">{{event.time}}</span>
-                    </li>
-                </ul>
-            </div>
-
-        </div>
+  <div class="calendar-tile">
+    <div class="headers">
+      <div class="day-cell" *ngFor="let day of weekDays">{{day}}</div>
     </div>
+    <div class="dates-wrap">
+      <div class="day-cell" id="date-number" *ngFor="let day of allDates" [ngClass]="day.class">
+        <span>{{day.dateNumber}}</span>
+        <span class="month-name"> {{day.date | date:'MMM'}}</span>
+        <button class="event-mark" *ngIf="day.events" mat-button (click)="eventDetails(day)"><i
+            class="event-icon fa fa-circle"></i><span class="event-count"
+            *ngIf="day.events">{{day.eventCount}}</span></button>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="eventLayer" class="event-type p-4" style="position: absolute;">
+    <button class="float-right" mat-button (click)="closeEventDetails()"><i class="fa fa-times-circle"></i></button>
+    <h2>Events on {{eventLayer.dateString}}</h2>
+    <div class="row">
+      <div class="col-md-12">
+        <ul class="list-group">
+          <li id="list-background" class="list-group-item" *ngFor="let event of eventLayer.schedules">
+            <span>{{event.title}}</span><span class="ml-5">{{event.time}}</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
 </div>

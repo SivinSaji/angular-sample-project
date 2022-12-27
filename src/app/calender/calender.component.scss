@@ -1,129 +1,185 @@
 .container {
-    max-width: 800px;
-    margin: auto;
-    margin-top: 10px;
-    font-family: sans-serif;
-    border: 1px solid grey;
+  max-width: 800px;
+  margin: auto;
+  margin-top: 10px;
+  font-family: sans-serif;
+  border: 1px solid grey;
 }
 
 .month {
-    text-align: center;
-    background: #bbc4c2;
-    font-size: 2.5em;
-    color: #747474;
-    padding: 25px;
+  text-align: center;
+  background: #bbc4c2;
+  font-size: 2.5em;
+  color: #747474;
+  padding: 25px;
 }
 
 .next-month-button {
-    font-size: 3rem;
-    font-weight: 400;
+  font-size: 3rem;
+  font-weight: 400;
 }
 
 .date {
-    text-align: center;
-    font-size: .5em;
-    color: #747474;
+  text-align: center;
+  font-size: .5em;
+  color: #747474;
+}
+
+.month-small-display {
+  text-align: center;
+  font-size: .5em;
+  color: #747474;
 }
 
 .calendar-tile {
+  .day-cell {
+    text-align: center;
+    width: 100%;
+    border: 1px solid white;
+    opacity: 0.5;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    position: relative;
+
+    &.cur-month {
+      opacity: 1;
+    }
+
+    &.current-date {
+      background: grey !important;
+    }
+
+    .month-name {
+      display: none;
+      font-size: smaller;
+    }
+
+    &.first-of-month {
+      .month-name {
+        display: unset;
+      }
+
+      .event-mark {
+        font-size: 1.2em;
+        margin-left: 33%;
+        top: -1px;
+      }
+    }
+  }
+
+  .event-count {
+    color: #fff;
+    margin-left: -40px;
+    font-size: 10px;
+    z-index: 1;
+    position: relative;
+  }
+
+  .event-mark {
+    position: absolute;
+    margin-top: -10px;
+    margin-left: 4px;
+    left: 0;
+    opacity: 0.5;
+    top: 5px;
+    z-index: 3;
+    color: black;
+  }
+
+  .headers {
+    display: flex;
+  }
+
+  .dates-wrap {
+    display: flex;
+    flex-wrap: wrap;
+
     .day-cell {
-        text-align: center;
-        width: 100%;
-        border: 1px solid white;
-        opacity: 0.5;
-        padding-top: 5px;
-        padding-bottom: 5px;
-        position: relative;
+      text-align: end;
+      flex: 1 0 14%;
+      background: silver;
 
-        &.cur-month {
-            opacity: 1;
-        }
-
-        &.current-date {
-            background: grey !important;
-        }
-
-        .month-name {
-            display: none;
-            font-size: smaller;
-        }
-
-        &.first-of-month {
-            .month-name {
-                display: unset;
-            }
-
-            .event-mark {
-                font-size: 3.2em;
-                margin-left: 33%;
-                top: -1px;
-            }
-        }
-    }
-
-    .event-mark {
+      .event-mark {
         position: absolute;
-        font-size: 2em;
-        margin-left: 39%;
-        left: 0;
-        opacity: 0.5;
-        top: 5px;
-        z-index: 3;
-        color: green;
+
+      }
     }
-
-    .headers {
-        display: flex;
-    }
-
-    .dates-wrap {
-        display: flex;
-        flex-wrap: wrap;
-
-        .day-cell {
-            flex: 1 0 14%;
-            padding: 10px 0;
-            background: silver;
-
-            .event-mark {
-                position: absolute;
-
-            }
-        }
-    }
+  }
 }
 
 .event-type {
-    position: absolute;
-    background: silver;
-    top: 0;
-    left: 0;
-    height: 100%;
-    z-index: 10;
-    width: 100%;
+  position: absolute;
+  background: silver;
+  top: 0;
+  left: 0;
+  height: 100%;
+  z-index: 10;
+  width: 100%;
 }
 
 .right-table {
-    margin-left: -32px;
+  margin-left: -32px;
 }
 
 .event-icon {
-    margin-top: -3px;
-    margin-left: -36px;
+  margin-top: -1px;
+  margin-left: -46px;
+  font-size: 21px;
+  position: absolute;
 }
 
 .cur-month:hover {
-    background: red;
+  background: red;
 }
 
 #date-number:hover {
-    background: gainsboro;
+  background: gainsboro;
 }
 
 #header-button {
-    color: grey;
+  color: grey;
 }
 
 #list-background {
-    background: silver;
+  background: silver;
+}
+
+@media screen and (max-width: 600px) {
+
+  /*Hide in small Devices*/
+  .month-large-device {
+    display: none;
+  }
+
+  .event-mark {
+    font-size: 1em;
+  }
+
+  .todayButton-large-device {
+    display: none;
+  }
+
+  .dates-wrap {
+    .day-cell {
+      padding: 10px 2px 2px 5px;
+    }
+  }
+}
+
+@media screen and (min-width: 600px) {
+
+  /*Hide in medium Devices*/
+  .todayButton-small-device {
+    display: none;
+  }
+
+  .month-small-display {
+    display: none;
+  }
+
+  .dates-wrap {
+    .day-cell {
+      padding: 30px 2px 2px 30px;
+    }
+  }
 }
