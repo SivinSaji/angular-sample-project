@@ -13,13 +13,17 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatCardModule } from '@angular/material/card';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { CalenderComponent } from './calender/calender.component';
+import { TimerComponent } from './timer/timer.component';
+import { BulbComponent } from './bulb/bulb.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     HomeComponent,
-    CalenderComponent
+    CalenderComponent,
+    TimerComponent,
+    BulbComponent
   ],
   imports: [
     BrowserModule,

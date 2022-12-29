@@ -4,7 +4,8 @@ import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { CalenderComponent } from './calender/calender.component';
 import { AuthGuard } from './shared/auth.guard';
-
+import { TimerComponent } from './timer/timer.component';
+import { BulbComponent } from './bulb/bulb.component';
 const routes: Routes = [
   {
     path: '',
@@ -19,7 +20,16 @@ const routes: Routes = [
   {
     path: 'calender', component: CalenderComponent,
     canActivate: [AuthGuard]
-  }
+  },
+  {
+    path: 'timer', component: TimerComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'bulb', component: BulbComponent,
+    canActivate: [AuthGuard]
+  },
+
 ];
 
 @NgModule({

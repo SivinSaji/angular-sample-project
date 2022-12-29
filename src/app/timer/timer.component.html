@@ -1,0 +1,19 @@
+<div class="base">
+<div class="datetime">
+  <div class="date">
+    <span id="dayname">{{day}}</span>,
+    <span id="daynum">{{date | date: 'dd'}} </span>
+    <span id="month">{{month}}</span>,
+    <span id="year">{{date | date: 'y'}}</span>
+  </div>
+  <div class="time mt-3">
+    <span id="hour">{{hour}}</span>:
+    <span id="minutes">{{minute}}</span>:
+    <span id="seconds">{{second}}</span>
+    <span id="period">{{ampm}}</span>
+  </div>
+  <div class="time mt-3">
+    <span id="timezone">Timezone: {{timezone}}</span>
+  </div>
+</div>
+</div>
