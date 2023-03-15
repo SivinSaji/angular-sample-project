@@ -15,6 +15,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { CalenderComponent } from './calender/calender.component';
 import { TimerComponent } from './timer/timer.component';
 import { BulbComponent } from './bulb/bulb.component';
+import { ProgressBarComponent } from './progress-bar/progress-bar.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { BulbComponent } from './bulb/bulb.component';
     HomeComponent,
     CalenderComponent,
     TimerComponent,
-    BulbComponent
+    BulbComponent,
+    ProgressBarComponent
   ],
   imports: [
     BrowserModule,

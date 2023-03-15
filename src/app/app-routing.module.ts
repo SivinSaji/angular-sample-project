@@ -6,6 +6,7 @@ import { CalenderComponent } from './calender/calender.component';
 import { AuthGuard } from './shared/auth.guard';
 import { TimerComponent } from './timer/timer.component';
 import { BulbComponent } from './bulb/bulb.component';
+import { ProgressBarComponent } from './progress-bar/progress-bar.component';
 const routes: Routes = [
   {
     path: '',
@@ -28,6 +29,9 @@ const routes: Routes = [
   {
     path: 'bulb', component: BulbComponent,
     canActivate: [AuthGuard]
+  },
+  {
+    path: 'progress-bar', component: ProgressBarComponent
   },
 
 ];
